@@ -30,9 +30,11 @@ public class FindUniqueCharacters {
 
 		for (Character c : hashMap.keySet()) {
 
+			if(hashMap.get(c)==1){
 			System.out.println("The key is " + c + " The value is "
 					+ hashMap.get(c));
 		}
+	}
 	}
 
 	public static void main(String args[]) {
