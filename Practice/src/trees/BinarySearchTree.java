@@ -69,7 +69,12 @@ public class BinarySearchTree {
 			}else{
 				parent.right = current.right;
 			}
-		}else if(current.left!=null && current.right!=null){
+		}
+		
+		
+		
+		
+		else if(current.left!=null && current.right!=null){
 			
 			//now we have found the minimum element in the right sub tree
 			Node successor	 = getSuccessor(current);
@@ -103,6 +108,11 @@ public class BinarySearchTree {
 		}
 		return successsor;
 	}
+	
+	
+	
+	
+	
 	public void insert(int id){
 		Node newNode = new Node(id);
 		if(root==null){
@@ -116,6 +126,12 @@ public class BinarySearchTree {
 			if(id<current.data){				
 				current = current.left;
 				if(current==null){
+					/*
+					 * this is done as here we are first incrementing the pointer(currrent) and then 
+					 * checking whether it is null or not. So we cant do current=newNode as
+					 * current is at presenting pointing to the new node and hence we have the just previous reference of the
+					 * current in the parent.
+					 */
 					parent.left = newNode;
 					return;
 				}
@@ -128,30 +144,48 @@ public class BinarySearchTree {
 			}
 		}
 	}
+	/*
+	 * This is inorder traversal of the tree.
+	 */
 	public void display(Node root){
 		if(root!=null){
 			display(root.left);
+		
 			System.out.print(" " + root.data);
 			display(root.right);
 		}
 	}
+	
+	public void displayPostOrder(Node root){
+		if(root!=null){
+			display(root.left);
+			display(root.right);
+			System.out.print(" " + root.data);
+			
+		}
+	}
+	
 	public static void main(String arg[]){
 		BinarySearchTree b = new BinarySearchTree();
+		CheckForBalancedTree c= new CheckForBalancedTree();
 		b.insert(3);b.insert(8);
 		b.insert(1);b.insert(4);b.insert(6);b.insert(2);b.insert(10);b.insert(9);
 		b.insert(20);b.insert(25);b.insert(15);b.insert(16);
 		System.out.println("Original Tree : ");
-		b.display(b.root);		
-		System.out.println("");
+		//b.display(b.root);		
+		b.displayPostOrder(b.root);
+		/*System.out.println("");
 		System.out.println("Check whether Node with value 4 exists : " + b.find(4));
 		System.out.println("Delete Node with no children (2) : " + b.delete(2));		
 		b.display(root);
 		System.out.println("\n Delete Node with one child (4) : " + b.delete(4));		
 		b.display(root);
 		System.out.println("\n Delete Node with Two children (10) : " + b.delete(10));		
-		b.display(root);
+		b.display(root);*/
+		c.checkBalanced(root);
 	}
 }
+
 
 class Node{
 	int data;

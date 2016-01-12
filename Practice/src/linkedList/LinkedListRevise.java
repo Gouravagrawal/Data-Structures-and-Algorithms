@@ -11,14 +11,14 @@ public class LinkedListRevise {
 		Node next;
 	}
 	Node head=null;
-	Node tail=null;
+	
 	public void create(int value){
 		Node newNode=new Node(); 
 		newNode.data=value;
 		
 		if(head==null){
-			head=tail=newNode;
-			tail.next=null;
+			head=newNode;
+			head.next=null;
 		}
 		
 		else{
@@ -26,6 +26,7 @@ public class LinkedListRevise {
 			head=newNode;
 		}				
 	}
+	
 	
 	
 	public void insertIntoSpecifiedINdex(int index, int val){
@@ -41,7 +42,7 @@ public class LinkedListRevise {
 		n.next=x;
 	}
 	
-	public void insertAtTail(int val){
+	/*public void insertAtTail(int val){
 		Node tempHead=head;
 		Node temp=new Node();
 		while(tempHead.next!=null){
@@ -51,7 +52,7 @@ public class LinkedListRevise {
 		tempHead.next=temp;		
 		temp.next=null;
 		tempHead=tail=temp;
-	}
+	}*/
 	
 	/*
 	 * Deletion operation methods
@@ -60,14 +61,14 @@ public class LinkedListRevise {
 		head=head.next;
 	}
 	
-	public void deleteTail(){
+	/*public void deleteTail(){
 		Node temp=head;
 		while(temp.next.next!=null){
 			temp=temp.next;
 		}
 		temp.next=null;
 		tail=temp.next;
-	}
+	}*/
 	
 	public void deleteAtIndex(int val){
 		Node newNode=new Node();
@@ -95,11 +96,11 @@ public class LinkedListRevise {
 			lr.create(49);
 			lr.create(40);
 			lr.create(141);
-			lr.insertIntoSpecifiedINdex(15,20);
+		//	lr.insertIntoSpecifiedINdex(15,20);
 			//lr.insertAtTail(60);
 			//lr.deleteHead();
 		//	lr.deleteTail();
-			lr.deleteAtIndex(49);
+		//	lr.deleteAtIndex(49);
 			lr.printList();
 			//
 	}
